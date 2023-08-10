@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Ant-Colony-Optimization-master:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ant_Colony_Optimization_master_jar</output-path>
+    <root id="archive" name="Ant-Colony-Optimization-master.jar">
+      <element id="module-output" name="Ant-Colony-Optimization-master" />
+      <element id="library" level="project" name="Ant_Colony_Optimization" />
+    </root>
+  </artifact>
+</component>
