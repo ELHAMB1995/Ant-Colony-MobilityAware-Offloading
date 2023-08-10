@@ -1,6 +1,4 @@
-package ACO2;
-
-public class HAnt
+public class Ant
 {
     int[] selected;
 
@@ -13,7 +11,7 @@ public class HAnt
     int fogCount;
     double totalViolation=0;
     DataGenerate data2;
-    public HAnt(int nodeCount, int fogCount, DataGenerate data2)
+    public Ant(int nodeCount, int fogCount, DataGenerate data2)
     {
         selected= new int[nodeCount];
         this.nodeCount=nodeCount;

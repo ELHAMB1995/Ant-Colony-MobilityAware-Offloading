@@ -1,11 +1,7 @@
-package ACO2;
-
 import ilog.concert.IloException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
 /**
  * Created by ParnianPC on 09/08/2021.
  */

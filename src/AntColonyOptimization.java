@@ -1,4 +1,3 @@
-package ACO2;
 import ilog.concert.IloException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,14 +18,14 @@ public class AntColonyOptimization {
     private int numberOfAnts =20;
     private ArrayList graph;
     private double pheromones[][];
-    private List<HAnt> ants = new ArrayList();
+    private List<Ant> ants = new ArrayList();
     private Random random = new Random();
     private double probabilities[];
     int[] bestTourOrder;
     double bestTourLength;
     private double lastBest=Double.MAX_VALUE;
     int it;
-    private HAnt bAnt;
+    private Ant bAnt;
     Double inf=Double.MAX_VALUE;
     int notChange=0;
     ArrayList<Integer> order = new ArrayList<Integer>();
@@ -39,7 +38,7 @@ public class AntColonyOptimization {
         probabilities = new double[fogcount+2];
         graph = generateMatrix();
         for (int i = 0; i < numberOfAnts; i++){
-            ants.add(new HAnt(nodecount, fogcount, data2));}
+            ants.add(new Ant(nodecount, fogcount, data2));}
         double maxCost[] = new double[nodecount];
         for (int i = 0; i < nodecount; i++) {
             HashMap map= (HashMap) graph.get(i);
@@ -123,7 +122,7 @@ public class AntColonyOptimization {
      * At each iteration, move ants
      */
     private void moveAnts() {
-        for (HAnt ant : ants) {
+        for (Ant ant : ants) {
             ant.clear();
             for (int i = 0; i < nodecount; i++) {
                 boolean asignment = false;
@@ -146,7 +145,7 @@ public class AntColonyOptimization {
                             break;}}
                     if(ant.selected[i]==-1){
                         i--;}}}}}
-    public void calculateProbabilities(HAnt ant, int nodeIndex) {
+    public void calculateProbabilities(Ant ant, int nodeIndex) {
         double sum = 0.0;
         HashMap map= (HashMap) graph.get(nodeIndex);
         for (Object key:map.keySet()) {
@@ -181,7 +180,7 @@ public class AntColonyOptimization {
                 pheromones[i][j] = pheromones[i][j] * (1-evaporationRate);
             }
         }
-        for (HAnt a : ants) {
+        for (Ant a : ants) {
             double contribution=  (float)(Q / a.totalCost);
             if (a.totalViolation!=0){
                 contribution=0;
@@ -201,11 +200,11 @@ public class AntColonyOptimization {
         if (bestTourOrder == null) {
             bestTourOrder = ants.get(0).selected.clone();
             bestTourLength =getTotalCost(graph,ants.get(0));
-            bAnt = new HAnt(nodecount,fogcount,data2);
+            bAnt = new Ant(nodecount,fogcount,data2);
             bAnt.totalViolation=1000000000;
         }
 
-        for (HAnt a : ants) {
+        for (Ant a : ants) {
             double cost=getTotalCost(graph,a);
             if (cost < bestTourLength) {
                 bestTourLength=cost;
@@ -236,7 +235,7 @@ public class AntColonyOptimization {
         }
     }
 
-    protected double getTotalCost(ArrayList graph, HAnt ant)
+    protected double getTotalCost(ArrayList graph, Ant ant)
     {
         double alfa=100000;
         double gama=100000;

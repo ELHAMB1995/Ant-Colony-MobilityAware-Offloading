@@ -1,5 +1,3 @@
-package ACO2;
-
 import ilog.concert.IloException;
 
 import java.io.FileInputStream;
@@ -10,7 +8,7 @@ import java.util.Random;
 /**
  * Created by ParnianPC on 16/08/2021.
  */
-public class Htest {
+public class Evaluate_methods {
 
     public static void main(String[] args) throws IOException, IloException, ClassNotFoundException {
         int neighborhood[][];
@@ -30,7 +28,6 @@ public class Htest {
             int low = 2900;//2.9 GHz 1000MHz
             int high = 4200;//4.2 GHz 4000MHz
             fogCPUFrequency[j] = low + random.nextDouble()*(high - low);// fogCPUFrequency is Mega cycles/bit
-
         }
         for (int i = 0; i < fogCount; i++) {
             int low = 100;
@@ -45,10 +42,7 @@ public class Htest {
 
         for (int i = 0; i < fogCount; i++) {
              Load[i] =random.nextDouble();
-
-
         }
-
 int g=0;
 ////
         DataGenerate data2;
@@ -83,7 +77,7 @@ int g=0;
 //            // System.out.println( primaryLoad[i]+" ");
 
             }
-            System.out.println(nodeCount[g]);
+            System.out.println("task number:"+nodeCount[g]);
 //            double sojourn[][]= new double[nodeCount[g]][fogCount];
 //            double[] sjval={10,20,30,40,50};
 //            for (int i = 0; i <nodeCount[g] ; i++) {
@@ -111,7 +105,7 @@ int g=0;
             cp.solveModel(data2);
             long endTime = System.currentTimeMillis();
             long duration = (endTime - startTime);
-            System.out.println("time" + duration);
+//            System.out.println("time" + duration);
             cost0 += cp.bestValue;
             double temp = 0;
             double temp2 = 0;
@@ -141,7 +135,7 @@ int g=0;
              AntColonyOptimization aco = new AntColonyOptimization(data2);
              aco.startAntOptimization();
              endTime = System.currentTimeMillis();
-             System.out.println("time" + (endTime - startTime));
+//             System.out.println("time" + (endTime - startTime));
              cost1 += aco.bestTourLength;
              temp = 0;
              temp2 = 0;
@@ -236,7 +230,7 @@ int g=0;
 
     }
 }
-public static double restime(DataGenerate data2, int i, int j,double prob){
+public static double restime(DataGenerate data2, int i, int j, double prob){
         double total=0;
     for (int k = 0; k < data2.fogCount ; k++) {
         total+=data2.tansitionProbability[i][j][k];

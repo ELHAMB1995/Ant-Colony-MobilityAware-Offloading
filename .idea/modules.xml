@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ant-Colony-Optimization-master.iml" filepath="$PROJECT_DIR$/Ant-Colony-Optimization-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ant-Colony-MobilityAware-Offloading.iml" filepath="$PROJECT_DIR$/Ant-Colony-MobilityAware-Offloading.iml" />
     </modules>
   </component>
 </project>

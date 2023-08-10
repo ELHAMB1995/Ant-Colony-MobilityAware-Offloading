@@ -1,9 +1,9 @@
-package ACO2;
 import ilog.concert.IloException;
 import ilog.concert.IloIntVar;
 import ilog.concert.IloLinearNumExpr;
 import ilog.concert.IloNumExpr;
 import ilog.cplex.IloCplex;
+
 import java.io.IOException;
 /**
  * Created by ParnianPC on 28/05/2021.
